@@ -50,3 +50,4 @@ workflows:
       - docker/publish:
           image: quentinlap84/oc_p13
           tag: "$CIRCLE_SHA1,latest"
+          

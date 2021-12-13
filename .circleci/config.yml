@@ -52,10 +52,16 @@ workflows:
           tag: "$CIRCLE_SHA1,latest"
           requires:
             - build-and-test
+          filters:
+            branches:
+              only: master
       - heroku/deploy-via-git:
           app-name: oc-lettings-50
           requires:
             - build-and-test
+          filters:
+            branches:
+              only: master
 
 
 

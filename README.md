@@ -75,3 +75,52 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+
+### Déploiement
+
+Fonctionnement resumé:
+
+Lors de l'envoi d'un commit sur la branch "master" du projet present sur Github, circleCI (lui meme lié au repository) va declancher plusieurs processus automatiquement :
+1. Réalisatations des tests pour verifier le fonctionnement du code.
+2. Si la premiere étape est un succes, alors l'etape de conteneurisation de l'application demarre et sera envoyer sur DockerHub.
+3. Si la premiere étape est un succes, l'application sera envoyée sur Heroku pour effectuer son deploiement.
+  
+
+
+Pré-requis :
+
+- Un compte/acces Github
+- Un compte/acces CircleCi
+- Un Compte/acces DockerHub
+- Un Compte/Acces Heroku
+- Un Compte/Acces Sentry
+
+
+### Github:
+
+Un compte est necéssaire pour y cloner le projet et lier le repository à CircleCi
+
+### CircleCi:
+
+Une fois connecté à votre compte CircleCI, dans le menu "projets" connectez vous sur votre repository à l'aide de "Set Up Project".
+Le projet possedant déja un fichier de configuration dans ".circleci/config.yml" il vous sera alors demandé si vous souhaitez l'utiliser.
+Confirmez son utilisation.
+
+Une fois sur la page de gestion de votre projet sur CircleCI, utilisez le bouton Project Settings à droite, puis Environment Variables à gauche. 
+
+Entrez les variables suivantes :
+
+- DOCKER_LOGIN
+- DOCKER_PASSWORD
+- HEROKU_API_KEY
+- SENTRY_DSN
+
+
+### DockerHub:
+### Heroku:
+### Sentry:
+
+
+
+
+

@@ -106,19 +106,40 @@ Une fois connecté à votre compte CircleCI, dans le menu "projets" connectez vo
 Le projet possedant déja un fichier de configuration dans ".circleci/config.yml" il vous sera alors demandé si vous souhaitez l'utiliser.
 Confirmez son utilisation.
 
-Une fois sur la page de gestion de votre projet sur CircleCI, utilisez le bouton Project Settings à droite, puis Environment Variables à gauche. 
+Une fois sur la page de gestion de votre projet sur CircleCI, utilisez le bouton "Project Settings" à droite, puis "Environment Variables" à gauche. 
 
 Entrez les variables suivantes :
 
-- DOCKER_LOGIN
-- DOCKER_PASSWORD
-- HEROKU_API_KEY
-- SENTRY_DSN
+- DOCKER_LOGIN (correspond à votre username sur DockerHub)
+- DOCKER_PASSWORD (correspond à votre Token acces sur DockerHub)
+- HEROKU_API_KEY (API Key récupérée sur votre compte Heroku)
+- SENTRY_DSN (DSN de votre projet Sentry)
 
 
 ### DockerHub:
+Création d'un dépot dans Docker Hub
 ### Heroku:
+Création d'une application dans Heroku nomée:
+- oc ...
+Configuration des variable d'environnements ( settings/conf Vars):
+- ENV PRODUCTION (correspond au changement de parametre de l'environnement local vers environnement de production)
+- SECRET_KEY (Clé secret de l'application Django lors du passage en production)
+- SENTRY_DSN (DSN de votre projet Sentry)
 ### Sentry:
+La surveillance de l'application se fera via sentry.
+Une fois le compte crée, vous générez alors une "Issues" ZeroDivisionError dans sentry.
+
+
+Une fois les differents comptes crées et parametrés,
+Realiser une modification sur un fichier de l'application de la branche master et poussez cette modification sur le github.
+
+Les test de verification se declencherons.
+Si les tests passe , la contenerisation et le deploiement s'effectuerons.
+
+
+
+
+
 
 
 

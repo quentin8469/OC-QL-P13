@@ -10,7 +10,8 @@ class TestsLettings(TestCase):
     """"""
     
     def setUp(self):
-        address = Address.objects.create(number=1, street='street', city='Top City', state='state', zip_code=1234, country_iso_code='fr')
+        address = Address.objects.create(number=1, street='street', city='Top City', 
+                                         state='state', zip_code=1234, country_iso_code='fr')
         letting = Letting.objects.create(title='Au top', address=address)
     
     def test_lettings_index(self):

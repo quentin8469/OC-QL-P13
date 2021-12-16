@@ -78,12 +78,12 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 ### Déploiement
 ***
-Fonctionnement resumé:
+Fonctionnement résumé:
 
-Lors de l'envoi d'un commit sur la branch "master" du projet présent sur Github, circleCI (lui meme lié au repository) va declencher plusieurs processus automatiquement :
-1. Réalisations des tests pour verifier le fonctionnement du code.
-2. Si la premiere étape est un succes, alors l'etape de conteneurisation de l'application demarre et sera envoyer sur DockerHub.
-3. Si la premiere étape est un succes, l'application sera envoyée sur Heroku pour effectuer son deploiement.
+Lors de l'envoi d'un commit sur la branche "master" du projet présent sur Github, CircleCI (lui même lié au repository) va déclencher plusieurs processus automatiquement :
+1. Réalisations des tests pour vérifier le fonctionnement du code.
+2. Si la première étape est un succès, alors l'étape de construction de l'image de l'application démarre et sera envoyer sur DockerHub.
+3. Si la première étape est un succès, l'application sera envoyée sur Heroku pour effectuer son déploiement.
   
 
 
@@ -98,15 +98,15 @@ Pré-requis :
 
 ### Github:
 ***
-Un compte est necéssaire pour y cloner le projet et lier le repository à CircleCi
+Un compte est nécessaire pour y cloner le projet et lier le repository à CircleCi
 ***
 ### CircleCi:
 ***
 Une fois connecté à votre compte CircleCI, dans le menu "projets" connectez vous sur votre repository à l'aide de "Set Up Project".
-Le projet possedant déja un fichier de configuration dans ".circleci/config.yml" il vous sera alors demandé si vous souhaitez l'utiliser.
+Le projet possédant déjà un fichier de configuration dans ".circleci/config.yml" il vous sera alors demandé si vous souhaitez l'utiliser.<br>
 Confirmez son utilisation.
 
-Une fois sur la page de gestion de votre projet sur CircleCI, utilisez le bouton "Project Settings" à droite, puis "Environment Variables" à gauche. 
+Une fois sur la page de gestion de votre projet sur CircleCI, utilisez le bouton "Project Settings" à droite, puis "Environnement Variables" à gauche. 
 
 Entrez les variables suivantes :
 
@@ -114,19 +114,19 @@ Entrez les variables suivantes :
 - DOCKER_PASSWORD (correspond à votre Token acces sur DockerHub)
 - HEROKU_API_KEY (API Key récupérée sur votre compte Heroku)
 - SENTRY_DSN (DSN de votre projet Sentry)
-- SECRET_KEY (Clé secrete de l'application Django lors des tests et dockerisation)
+- SECRET_KEY (Clé secrète de l'application Django lors des tests et dockerisation)
 
 ### DockerHub:
 ***
-Création d'un dépot dans Docker Hub
+Création d'un dépôt dans Docker Hub
 ***
 ### Heroku:
 ***
-Création d'une application dans Heroku nomée:
+Création d'une application dans Heroku nommée:
 - oc-lettings-50
-  
+  
 Configuration des variable d'environnements ( settings/conf Vars):
-- ENV PRODUCTION (correspond au changement de parametre de l'environnement local vers environnement de production)
+- ENV PRODUCTION (correspond au changement de paramètre de l'environnement local vers environnement de production)
 - SECRET_KEY (Clé secret de l'application Django lors du passage en production)
 - SENTRY_DSN (DSN de votre projet Sentry)
 ***
@@ -138,8 +138,8 @@ Une fois le compte crée, vous générez alors une "Issues" ZeroDivisionError da
 ***
 ### Déroulement:
 ***
-Une fois les differents comptes crées et parametrés,
-réalisez une modification sur un fichier de l'application de la branche master et poussez cette modification sur le github.<br>
+Une fois les différents comptes crées et paramétrés,
+réalisez une modification sur un fichier de l'application de la branche master et poussez cette modification sur le Github.<br>
 ```
 git add <fichier modifié>
 git commit -m "<commentaire>"
@@ -147,12 +147,12 @@ git push
 ``` 
 <br>
 
-Les tests de verification se declencherons.
-- build_and_test monte et effectue les tests du bon fonctionnement de l'appli, via Pytest.
-  
-Si les tests passent , la contenerisation et le deploiement s'effectuerons.
+Les tests de vérification se déclencherons.
+- build_and_test monte et effectue les tests du bon fonctionnement de l'application, via Pytest.
+  
+Si les tests passent , la création de l'image et le déploiement s’effectueront.
 - docker/publish envoie l'image du projet sur docker hub (uniquement si branche master)
-- heroku/deploy-via-git envoie le projet sur heroku et le deploie (uniquement si branche master)
+- heroku/deploy-via-git envoie le projet sur heroku et le déploie (uniquement si branche master)
 
 
 

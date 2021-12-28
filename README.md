@@ -146,6 +146,7 @@ git commit -m "<commentaire>"
 git push
 ``` 
 <br>
+<br>
 
 Les tests de vérification se déclencherons.
 - build_and_test monte et effectue les tests du bon fonctionnement de l'application, via Pytest.

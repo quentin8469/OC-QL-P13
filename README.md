@@ -102,6 +102,8 @@ Un compte est nécessaire pour y cloner le projet et lier le repository à Circl
 ***
 ### CircleCi:
 ***
+lien: https://circleci.com/docs/
+
 Une fois connecté à votre compte CircleCI, dans le menu "projets" connectez vous sur votre repository à l'aide de "Set Up Project".
 Le projet possédant déjà un fichier de configuration dans ".circleci/config.yml" il vous sera alors demandé si vous souhaitez l'utiliser.<br>
 Confirmez son utilisation.
@@ -118,10 +120,13 @@ Entrez les variables suivantes :
 
 ### DockerHub:
 ***
+lien: https://hub.docker.com/
 Création d'un dépôt dans Docker Hub
 ***
 ### Heroku:
 ***
+lien: https://dashboard.heroku.com/apps
+
 Création d'une application dans Heroku nommée:
 - oc-lettings-50
   
@@ -132,6 +137,8 @@ Configuration des variable d'environnements ( settings/conf Vars):
 ***
 ### Sentry:
 ***
+lien: https://sentry.io/organizations/quentinl/projects/
+
 La surveillance de l'application se fera via sentry.
 Une fois le compte crée, vous générez alors une "Issues" ZeroDivisionError dans sentry.
 
@@ -145,7 +152,6 @@ git add <fichier modifié>
 git commit -m "<commentaire>"
 git push
 ``` 
-<br>
 <br>
 
 Les tests de vérification se déclencherons.
